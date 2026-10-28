@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: music-lineage-atlas
+    runtime: static
+    buildCommand: mkdir -p public && cp index.html styles.css app.js public/
+    staticPublishPath: ./public
+    previews:
+      generation: automatic
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
